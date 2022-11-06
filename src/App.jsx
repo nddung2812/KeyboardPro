@@ -13,6 +13,7 @@ function App() {
           <Second></Second>
           <Third></Third>
           <Forth></Forth>
+          <Fifth></Fifth>
         </Layout>
       </Keyboard>
     </Page>
@@ -46,38 +47,52 @@ const Title = styled.div`
 `;
 
 const Layout = styled.div`
-  position: relative;
   height: 80%;
   width: 100%;
   border: 1px #636060 solid;
-  display; flex;
+  display: flex;
   flex-direction: column;
+  justify-content: center;
   padding: 8px;
   border-radius: 12px;
+  background: #636060;
+
 `;
 
 const TouchBar = styled.div`
   background: red;
-  height: 16%;
+  height: 12%;
   background: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 50%, rgba(252,176,69,1) 100%);
-  border-top-right-radius: 12px;
-  border-top-left-radius: 12px;
-
+  border-radius: 12px;
+  margin: 0 0 8px 0;
 `;
 
 const First = styled.div`
-  background: #636060;
-  height: 21%;
+  height: 16.75%;
+  background: black;
+  margin: 0 0 6px 0;
+  border-radius: 12px;
 `;
 const Second = styled.div`
-  height: 21%;
-  background: #636060;  
+  height: 16.75%;
+  background: black;
+  border-radius: 12px;
+  margin: 0 0 6px 0;
 `;
 const Third = styled.div`
-  height: 21%;
-  background: #636060;
+  height: 16.75%;
+  background: black;
+  border-radius: 12px;
+  margin: 0 0 6px 0;
 `;
 const Forth = styled.div`
-  height: 21%;
-  background: #636060;
+  height: 16.75%;
+  background: black;
+  border-radius: 12px;
+  margin: 0 0 6px 0;
+`;
+const Fifth = styled.div`
+  height: 16.75%;
+  background: black;
+  border-radius: 12px;
 `;
