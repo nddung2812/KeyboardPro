@@ -1,19 +1,24 @@
 import { useState } from 'react';
 import styled from 'styled-components';
+import { FifthRow } from './Components/FifthLine';
+import { FirstRow } from './Components/FirstLine';
+import { ForthRow } from './Components/ForthLine';
+import { SecondRow } from './Components/SecondLine';
+import { ThirdRow } from './Components/ThirdLine';
 
 function App() {
   return (
     <Page>
-      <h1>Welcome to keyboard pro</h1>
+      <h1>Welcome to Keyboard Pro</h1>
       <Keyboard>
-        <Title>Mac keyboard</Title>
+        <Title>MAC Keyboard</Title>
         <Layout>
           <TouchBar></TouchBar>
-          <First></First>
-          <Second></Second>
-          <Third></Third>
-          <Forth></Forth>
-          <Fifth></Fifth>
+          <FirstRow />
+          <SecondRow></SecondRow>
+          <ThirdRow></ThirdRow>
+          <ForthRow></ForthRow>
+          <FifthRow></FifthRow>
         </Layout>
       </Keyboard>
     </Page>
@@ -33,7 +38,7 @@ const Page = styled.div`
 `;
 
 const Keyboard = styled.div`
-  width: 50%;
+  width: 60%;
   height: 50%;
   `;
 
@@ -67,32 +72,3 @@ const TouchBar = styled.div`
   margin: 0 0 8px 0;
 `;
 
-const First = styled.div`
-  height: 16.75%;
-  background: black;
-  margin: 0 0 6px 0;
-  border-radius: 12px;
-`;
-const Second = styled.div`
-  height: 16.75%;
-  background: black;
-  border-radius: 12px;
-  margin: 0 0 6px 0;
-`;
-const Third = styled.div`
-  height: 16.75%;
-  background: black;
-  border-radius: 12px;
-  margin: 0 0 6px 0;
-`;
-const Forth = styled.div`
-  height: 16.75%;
-  background: black;
-  border-radius: 12px;
-  margin: 0 0 6px 0;
-`;
-const Fifth = styled.div`
-  height: 16.75%;
-  background: black;
-  border-radius: 12px;
-`;
