@@ -43,12 +43,14 @@ export const FifthRow = () => {
       <Key>
         <div className="arrow-left"></div>
       </Key>
-      <Key>
+      <UpDownKey>
         <div className="arrow-container">
           <div className="arrow-up"></div>
         </div>
-        <div className="arrow-down"></div>
-      </Key>
+        <div className="arrow-container">
+          <div className="arrow-down"></div>
+        </div>
+      </UpDownKey>
       <Key>
         <div className="arrow-right"></div>
       </Key>
@@ -94,27 +96,6 @@ const Key = styled.div`
     border-bottom: 5px solid transparent;
     border-left:10px solid white;
   }
-  .arrow-up {
-    width: 0;
-    height: 0;
-    border-bottom: 10px solid white;
-    border-left:5px solid transparent;
-    border-right:5px solid transparent;
-  }
-  .arrow-down {
-    width: 0;
-    height: 0;
-    border-top: 10px solid white;
-    border-left:5px solid transparent;
-    border-right:5px solid transparent;
-  }
-  .arrow-container {
-    width: 100%;
-    border-bottom: 3px #636060 double;
-    height: 100%;
-    display: grid;
-    place-items: center;
-  }
   .top-wrapper.right {
     display: flex;
     align-items: center;
@@ -137,6 +118,46 @@ const Key = styled.div`
   }
 `;
 
+const UpDownKey = styled.div`
+  width: 6.3%;
+  height: 100%;
+  background: black;
+  border-radius: 6px;
+  margin: 0 0px 0 0;
+  display: grid;
+  place-items: center;
+  .fn-key {
+    margin: 10px;
+  }
+  .arrow-up {
+    width: 0;
+    height: 0;
+    border-bottom: 10px solid white;
+    border-left:5px solid transparent;
+    border-right:5px solid transparent;
+  }
+  .arrow-down {
+    width: 0;
+    height: 0;
+    border-top: 10px solid white;
+    border-left:5px solid transparent;
+    border-right:5px solid transparent;
+  }
+  .arrow-container {
+    width: 100%;
+    border-bottom: 3px #636060 double;
+    height: 100%;
+    display: grid;
+    place-items: center;
+    :hover {
+      background: pink;
+      color: black;
+      box-shadow: 0px 0px 2px yellow;
+      transition: 0.3s;
+      border-radius: 6px;
+    }
+  }
+`;
 const CommandKey = styled.div`
   width: 8.5%;
   height: 100%;
@@ -185,10 +206,8 @@ const SpaceKey = styled.div`
 
 const SpanTop = styled.span`
   padding-top: 10px;
-
 `;
 
 const SpanBottom = styled.span`
   padding-bottom: 8px;
-
 `;
