@@ -100,15 +100,15 @@ const Key = styled.div`
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    width: 100%;
-    padding: 0 0 0 16px;
+    width: 90%;
+    padding: 0 0 0 1rem;
   }
   .top-wrapper.left {
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    width: 100%;
-    padding: 0 16px 0 0;
+    width: 90%;
+    padding: 0 1rem 0 0;
   }
   :hover {
    background: pink;
@@ -170,15 +170,15 @@ const CommandKey = styled.div`
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    width: 100%;
-    padding: 0 0 0 16px;
+    width: 90%;
+    padding: 0 0 0 1rem;
   }
   .top-wrapper.left {
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    width: 100%;
-    padding: 0 16px 0 0;
+    width: 90%;
+    padding: 0 1rem 0 0;
   }
   :hover {
    background: pink;
