@@ -100,14 +100,14 @@ const Key = styled.div`
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    width: 90%;
+    width: 98%;
     padding: 0 0 0 1rem;
   }
   .top-wrapper.left {
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    width: 90%;
+    width: 98%;
     padding: 0 1rem 0 0;
   }
   :hover {
@@ -170,14 +170,14 @@ const CommandKey = styled.div`
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    width: 90%;
+    width: 98%;
     padding: 0 0 0 1rem;
   }
   .top-wrapper.left {
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    width: 90%;
+    width: 98%;
     padding: 0 1rem 0 0;
   }
   :hover {
