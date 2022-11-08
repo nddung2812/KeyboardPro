@@ -71,7 +71,12 @@ const Key = styled.div`
   margin: 0 0px 0 0;
   display: grid;
   place-items: center;
-  font-size: 1.5rem;
+  :hover {
+   background: pink;
+   color: black;
+   box-shadow: 0px 0px 2px yellow;
+   transition: 0.3s;
+  }
 `;
 
 const Key2 = styled.div`
@@ -79,12 +84,17 @@ const Key2 = styled.div`
   height: 100%;
   background: black;
   border-radius: 6px;
-  font-size: 1.5rem;
   display: flex;
   align-items: end;
   justify-content: flex-start;
   .tab {
     padding: 10px;
+  }
+  :hover {
+   background: pink;
+   color: black;
+   box-shadow: 0px 0px 2px yellow;
+   transition: 0.3s;
   }
 `;
 

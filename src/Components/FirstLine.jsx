@@ -61,7 +61,7 @@ export const FirstRow = () => {
       </Key>
 
       <Key2>
-        <span className="delete">Delete</span>
+        <span className="delete">delete</span>
       </Key2>
 
     </Row>
@@ -83,9 +83,14 @@ const Key = styled.div`
   margin: 0 0px 0 0;
   display: grid;
   place-items: center;
-  font-size: 1.5rem;
   .dash {
     padding-top: 0px;
+  }
+  :hover {
+   background: pink;
+   color: black;
+   box-shadow: 0px 0px 2px yellow;
+   transition: 0.3s;
   }
 `;
 
@@ -94,17 +99,21 @@ const Key2 = styled.div`
   height: 100%;
   background: black;
   border-radius: 6px;
-  font-size: 1.5rem;
-  display: flex; 
+  display: flex;
   align-items: end;
   justify-content: flex-end;
   .delete {
     padding: 10px;
   }
+  :hover {
+   background: pink;
+   color: black;
+   box-shadow: 0px 0px 2px yellow;
+   transition: 0.3s;
+  }
 `;
 
 const SpanTop = styled.span`
-
   padding-top: 10px;
 `;
 

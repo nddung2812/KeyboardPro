@@ -43,7 +43,7 @@ export const ForthRow = () => {
         <SpanBottom>/</SpanBottom>
       </Key>
 
-      <Key4>
+      <Key4 className="shift-right">
         <span className="shiftRight">shift</span>
       </Key4>
 
@@ -56,6 +56,11 @@ const Row = styled.div`
   margin: 0 0 6px 0;
   display: flex;
   justify-content: space-between;
+  .shift-right{
+    display: flex;
+    align-items: end;
+    justify-content: flex-end;
+  }
 `;
 
 const Key = styled.div`
@@ -66,7 +71,12 @@ const Key = styled.div`
   margin: 0 0px 0 0;
   display: grid;
   place-items: center;
-  font-size: 1.5rem;
+  :hover {
+   background: pink;
+   color: black;
+   box-shadow: 0px 0px 2px yellow;
+   transition: 0.3s;
+  }
 `;
 
 const Key4 = styled.div`
@@ -74,17 +84,15 @@ const Key4 = styled.div`
   height: 100%;
   background: black;
   border-radius: 6px;
-  font-size: 1.5rem;
-  display: flex; 
+  display: flex;
   align-items: end;
   justify-content: flex-start;
   .shiftLeft {
     padding: 10px;
   }
   .shiftRight {
-    padding: 10px;
-    margin-left: 50%;
-    @media ${device.desktop} {
+    margin: 10px;
+    /* @media ${device.desktop} {
       // background: blue;
     }
     @media ${device.tablet} {
@@ -92,7 +100,13 @@ const Key4 = styled.div`
     }
     @media ${device.laptopL} {
       margin-left: 64%;
-    }
+    } */
+  }
+  :hover {
+   background: pink;
+   color: black;
+   box-shadow: 0px 0px 2px yellow;
+   transition: 0.3s;
   }
 `;
 

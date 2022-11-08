@@ -45,7 +45,7 @@ export const ThirdRow = () => {
         <SpanBottom>'</SpanBottom>
       </Key>
 
-      <Key3>
+      <Key3 className="return-key">
         <span className="return">return</span>
       </Key3>
 
@@ -58,6 +58,11 @@ const Row = styled.div`
   margin: 0 0 6px 0;
   display: flex;
   justify-content: space-between;
+  .return-key {
+    display: flex;
+    align-items: end;
+    justify-content: flex-end;
+  }
 `;
 
 const Key = styled.div`
@@ -68,7 +73,12 @@ const Key = styled.div`
   margin: 0 0px 0 0;
   display: grid;
   place-items: center;
-  font-size: 1.5rem;
+  :hover {
+   background: pink;
+   color: black;
+   box-shadow: 0px 0px 2px yellow;
+   transition: 0.3s;
+  }
 `;
 
 const Key3 = styled.div`
@@ -76,14 +86,22 @@ const Key3 = styled.div`
   height: 100%;
   background: black;
   border-radius: 6px;
-  font-size: 1.5rem;
-  display: flex; 
+  display: flex;
   align-items: end;
   justify-content: flex-start;
   .capsLock {
     padding: 10px;
   }
   .return {
+    margin: 10px;
+  }
+  :hover {
+   background: pink;
+   color: black;
+   box-shadow: 0px 0px 2px yellow;
+   transition: 0.3s;
+  }
+  /* .return {
     padding: 10px;
     margin-left: 50%;
     @media ${device.desktop} {
@@ -95,7 +113,7 @@ const Key3 = styled.div`
     @media ${device.laptopL} {
       margin-left: 54%;
     }
-  }
+  } */
 `;
 
 const SpanTop = styled.span`

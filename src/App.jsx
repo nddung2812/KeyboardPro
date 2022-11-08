@@ -35,6 +35,8 @@ const Page = styled.div`
   justify-content: center;
   text-align: center;
   flex-direction: column;
+  color: white;
+  font-size: 1.2rem;
 `;
 
 const Keyboard = styled.div`
@@ -58,7 +60,7 @@ const Layout = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 8px;
+  padding: 8px 8px 2px 8px;
   border-radius: 12px;
   background: #636060;
 

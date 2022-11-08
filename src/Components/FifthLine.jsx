@@ -1,46 +1,56 @@
 import styled from "styled-components";
-import { device } from "./device";
 
 export const FifthRow = () => {
 
   return (
     <Row>
-      <Key>
-        <span>fn</span>
+      <Key className="fn">
+        <span className="fn-key">fn</span>
       </Key>
       <Key>
-        <SpanTop>⌥</SpanTop>
+        <div className="top-wrapper left">
+          <SpanTop>⌃</SpanTop>
+        </div>
         <SpanBottom>control</SpanBottom>
       </Key>
       <Key>
-        <SpanTop>⌥</SpanTop>
+        <div className="top-wrapper left">
+          <SpanTop>⌥</SpanTop>
+        </div>
         <SpanBottom>option</SpanBottom>
       </Key>
       <CommandKey>
-        <SpanTop>⌘</SpanTop>
+        <div className="top-wrapper left">
+          <SpanTop>⌘</SpanTop>
+        </div>
         <SpanBottom>command</SpanBottom>
       </CommandKey>
 
       <SpaceKey>
-        <span>Space</span>
       </SpaceKey>
       <CommandKey>
-        <SpanTop>⌘</SpanTop>
+        <div className="top-wrapper right">
+          <SpanTop>⌘</SpanTop>
+        </div>
         <SpanBottom>command</SpanBottom>
       </CommandKey>
       <Key>
-        <SpanTop>⌥</SpanTop>
+        <div className="top-wrapper right">
+          <SpanTop>⌥</SpanTop>
+        </div>
         <SpanBottom>option</SpanBottom>
       </Key>
       <Key>
-        <span>left</span>
+        <div className="arrow-left"></div>
       </Key>
       <Key>
-        <SpanTop>top</SpanTop>
-        <SpanBottom>down</SpanBottom>
+        <div className="arrow-container">
+          <div className="arrow-up"></div>
+        </div>
+        <div className="arrow-down"></div>
       </Key>
       <Key>
-        <span>right</span>
+        <div className="arrow-right"></div>
       </Key>
 
     </Row>
@@ -52,6 +62,11 @@ const Row = styled.div`
   margin: 0 0 6px 0;
   display: flex;
   justify-content: space-between;
+  .fn {
+    display: flex;
+    align-items: end;
+    justify-content: flex-start;
+  }
 `;
 
 const Key = styled.div`
@@ -62,7 +77,64 @@ const Key = styled.div`
   margin: 0 0px 0 0;
   display: grid;
   place-items: center;
-  font-size: 1.5rem;
+  .fn-key {
+    margin: 10px;
+  }
+  .arrow-left {
+    width: 0;
+    height: 0;
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+    border-right:10px solid white;
+  }
+  .arrow-right {
+    width: 0;
+    height: 0;
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+    border-left:10px solid white;
+  }
+  .arrow-up {
+    width: 0;
+    height: 0;
+    border-bottom: 10px solid white;
+    border-left:5px solid transparent;
+    border-right:5px solid transparent;
+  }
+  .arrow-down {
+    width: 0;
+    height: 0;
+    border-top: 10px solid white;
+    border-left:5px solid transparent;
+    border-right:5px solid transparent;
+  }
+  .arrow-container {
+    width: 100%;
+    border-bottom: 3px #636060 double;
+    height: 100%;
+    display: grid;
+    place-items: center;
+  }
+  .top-wrapper.right {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    padding: 0 0 0 16px;
+  }
+  .top-wrapper.left {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    width: 100%;
+    padding: 0 16px 0 0;
+  }
+  :hover {
+   background: pink;
+   color: black;
+   box-shadow: 0px 0px 2px yellow;
+   transition: 0.3s;
+  }
 `;
 
 const CommandKey = styled.div`
@@ -73,7 +145,26 @@ const CommandKey = styled.div`
   margin: 0 0px 0 0;
   display: grid;
   place-items: center;
-  font-size: 1.5rem;
+  .top-wrapper.right {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    padding: 0 0 0 16px;
+  }
+  .top-wrapper.left {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    width: 100%;
+    padding: 0 16px 0 0;
+  }
+  :hover {
+   background: pink;
+   color: black;
+   box-shadow: 0px 0px 2px yellow;
+   transition: 0.3s;
+  }
 `;
 
 const SpaceKey = styled.div`
@@ -84,40 +175,20 @@ const SpaceKey = styled.div`
   margin: 0 0px 0 0;
   display: grid;
   place-items: center;
-  font-size: 1.5rem;
-`;
-
-const Key4 = styled.div`
-  width: 15.3%;
-  height: 100%;
-  background: black;
-  border-radius: 6px;
-  font-size: 1.5rem;
-  display: flex; 
-  align-items: end;
-  justify-content: flex-start;
-  .shiftLeft {
-    padding: 10px;
-  }
-  .shiftRight {
-    padding: 10px;
-    margin-left: 50%;
-    @media ${device.desktop} {
-      // background: blue;
-    }
-    @media ${device.tablet} {
-      // background: red;
-    }
-    @media ${device.laptopL} {
-      margin-left: 64%;
-    }
+  :hover {
+   background: pink;
+   color: black;
+   box-shadow: 0px 0px 2px yellow;
+   transition: 0.3s;
   }
 `;
 
 const SpanTop = styled.span`
   padding-top: 10px;
+
 `;
 
 const SpanBottom = styled.span`
-  padding-bottom: 10px;
+  padding-bottom: 8px;
+
 `;
