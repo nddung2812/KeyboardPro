@@ -1,14 +1,23 @@
+import { useState, useEffect } from 'react';
+
 import styled from "styled-components";
 import { device } from "./device";
 
 export const ThirdRow = () => {
 
+  useEffect(() => {
+    document.addEventListener('keydown', detectKeydown, true)
+  },[])
+  const detectKeydown = (e) => {
+    console.log("Key pressed: ",e.key);
+    e.key === " " ? console.log("space bar"): "";
+  }
   return (
     <Row>
       <Key3>
         <span className="capsLock">caps lock</span>
       </Key3>
-      <Key>
+      <Key onKeyUp={e=>console.log(e)}>
         <span>A</span>
       </Key>
       <Key>
