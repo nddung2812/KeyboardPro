@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import styled from 'styled-components';
 
 import { FifthRow } from './Components/FifthLine';
@@ -15,27 +15,60 @@ function App() {
   const keyboard = "Keyboard"
 
   const [color, setColor] = useState(initColor);
-  console.log(color)
+
+  const layoutRef = useRef();
+
+  useEffect(() => {
+    const CARD = layoutRef.current;
+    const UPDATE = ({ x,y }) => {
+      const BOUNDS = CARD.getBoundingClientRect();
+      const posX = x - BOUNDS.x;
+      const posY = y - BOUNDS.y;
+      const ratioX = posX / BOUNDS.width;
+      const ratioY = posY / BOUNDS.height;
+      CARD.style.setProperty('--ratio-x', ratioX)
+      CARD.style.setProperty('--ratio-y', ratioY)
+    }
+    CARD.addEventListener('pointermove', UPDATE)
+  },[]);
+
+  const handleChange = (e) => {
+    // to find out if it's checked or not; returns true or false
+    var checked = e.target.checked;
+    console.log(checked);
+
+    // to get the checked value
+    const checkedValue = e.target.value;
+
+    // to get the checked name
+    const checkedName = e.target.name;
+  };
 
 
   return (
     <Page>
       <h1>Welcome to Keyboard Pro</h1>
-      <Keyboard>
+      <Keyboard >
         <Title>MAC {keyboard}</Title>
-        <Select value={color} onChange={e => setColor(e?.target.value)}>
-          <option value="">-- Select color -- </option>
-          <option value={deepPurple}>Deep Purple</option>
-          <option value={greenApline}>Green Alpine</option>
-          <option value={midNight}>Midnight Black</option>
-        </Select>
-        <Layout>
+        <Functionality>
+          <Select value={color} onChange={e => setColor(e?.target.value)}>
+            <option value="">-- Select color --</option>
+            <option value={deepPurple}>Deep Purple</option>
+            <option value={greenApline}>Alpine Green</option>
+            <option value={midNight}>Midnight Black</option>
+          </Select>
+          <Switch>
+            <input type="checkbox" onChange={handleChange}/>
+            <span className="slider round"></span>
+          </Switch>
+        </Functionality>
+        <Layout ref={layoutRef}>
           <TouchBar color={color}></TouchBar>
           <FirstRow />
-          <SecondRow></SecondRow>
-          <ThirdRow></ThirdRow>
-          <ForthRow></ForthRow>
-          <FifthRow></FifthRow>
+          <SecondRow />
+          <ThirdRow />
+          <ForthRow />
+          <FifthRow />
         </Layout>
       </Keyboard>
     </Page>
@@ -62,7 +95,7 @@ const Keyboard = styled.div`
   `;
 
 const Title = styled.div`
-  height: 20%;
+  height: 10%;
   position: relative;
   display: grid;
   place-items: center;
@@ -80,6 +113,11 @@ const Layout = styled.div`
   padding: 8px 8px 2px 8px;
   border-radius: 12px;
   background: #636060;
+  :hover {
+    transform:
+      rotateX(calc((var(--ratio-y) - 0.3) * 30deg))
+      rotateY(calc((var(--ratio-x) - 0.6) * 40deg));
+  }
 `;
 
 const TouchBar = styled.div`
@@ -95,10 +133,77 @@ const Select = styled.select`
   background:#636060;
   border:none;
   font-size: 1.2rem;
-  margin-bottom: 20px;
+  border-radius: 8px;
 `;
 
-const SpanRandomColor = styled.span`
-  color: ${(props) => props.aColor};
+const Functionality = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin-bottom: 2%;
 `;
+
+
+const Switch = styled.label`
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+  margin: 0 20px 0 20px;
+  input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  .slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+  }
+
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+
+  input:checked + .slider {
+    background-color: #2196F3;
+  }
+
+  input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+  }
+
+  input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+  }
+
+  /* Rounded sliders */
+  .slider.round {
+    border-radius: 34px;
+  }
+
+  .slider.round:before {
+    border-radius: 50%;
+  }
+
+`;
+
+
 

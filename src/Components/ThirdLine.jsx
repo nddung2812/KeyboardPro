@@ -1,23 +1,35 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 import styled from "styled-components";
 import { device } from "./device";
 
 export const ThirdRow = () => {
+  const [highlight, setHighlight] = useState("none");
 
+  let row3 = useRef(null);
+
+  const onKeyDownHandle = (e) => {
+    row3.current.focus()
+      const key = e.key;
+      console.log("you pressed: ",key)
+      if (key === "a") {
+        setHighlight("5px solid red")
+      } else if (key === "s") {
+        setHighlight("10px solid green")
+      } else {
+        setHighlight("none")
+      }
+  };
   useEffect(() => {
-    document.addEventListener('keydown', detectKeydown, true)
+    row3.current.focus()
   },[])
-  const detectKeydown = (e) => {
-    console.log("Key pressed: ",e.key);
-    e.key === " " ? console.log("space bar"): "";
-  }
+
   return (
-    <Row>
+    <Row ref={row3} tabIndex={0} onKeyUp={onKeyDownHandle} >
       <Key3>
         <span className="capsLock">caps lock</span>
       </Key3>
-      <Key onKeyUp={e=>console.log(e)}>
+      <Key style={{border: highlight}}>
         <span>A</span>
       </Key>
       <Key>
