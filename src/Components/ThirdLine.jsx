@@ -21,7 +21,7 @@ export const ThirdRow = () => {
       }
   };
   useEffect(() => {
-    row3.current.focus()
+    // row3.current.focus()
   },[])
 
   return (

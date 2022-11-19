@@ -15,6 +15,8 @@ function App() {
   const keyboard = "Keyboard"
 
   const [color, setColor] = useState(initColor);
+  const [theme, setTheme] = useState("#282828");
+  const [textColor, setTextColor] = useState();
 
   const layoutRef = useRef();
 
@@ -32,11 +34,16 @@ function App() {
     CARD.addEventListener('pointermove', UPDATE)
   },[]);
 
+
   const handleChange = (e) => {
     // to find out if it's checked or not; returns true or false
-    var checked = e.target.checked;
+    const checked = e.target.checked;
     console.log(checked);
+    checked == false ?
+      setTheme("#b5b5b5") : setTheme("#282828");
 
+    checked == false ?
+      setTextColor("black") : setTextColor("white");
     // to get the checked value
     const checkedValue = e.target.value;
 
@@ -46,10 +53,10 @@ function App() {
 
 
   return (
-    <Page>
-      <h1>Welcome to Keyboard Pro</h1>
-      <Keyboard >
-        <Title>MAC {keyboard}</Title>
+    <Page theme={theme}>
+      <H1 textColor={textColor}>Welcome to Keyboard Pro</H1>
+      <Keyboard>
+        <Title textColor={textColor}>MAC {keyboard}</Title>
         <Functionality>
           <Select value={color} onChange={e => setColor(e?.target.value)}>
             <option value="">-- Select color --</option>
@@ -61,6 +68,7 @@ function App() {
             <input type="checkbox" onChange={handleChange}/>
             <span className="slider round"></span>
           </Switch>
+          <Ptheme textColor={textColor}>Dark Theme</Ptheme>
         </Functionality>
         <Layout ref={layoutRef}>
           <TouchBar color={color}></TouchBar>
@@ -86,13 +94,18 @@ const Page = styled.div`
   text-align: center;
   flex-direction: column;
   color: white;
+  background: ${(props) => props.theme};
   font-size: 1.2rem;
 `;
 
 const Keyboard = styled.div`
   width: 60%;
   height: 50%;
-  `;
+`;
+
+const H1 = styled.h1`
+  color: ${(props) => props.textColor};
+`;
 
 const Title = styled.div`
   height: 10%;
@@ -101,6 +114,7 @@ const Title = styled.div`
   place-items: center;
   font-size: 30px;
   font-weight: 800;
+  color: ${(props) => props.textColor};
 `;
 
 const Layout = styled.div`
@@ -150,7 +164,7 @@ const Switch = styled.label`
   display: inline-block;
   width: 60px;
   height: 34px;
-  margin: 0 20px 0 20px;
+  margin: 0 8px 0 40px;
   input {
     opacity: 0;
     width: 0;
@@ -204,6 +218,11 @@ const Switch = styled.label`
   }
 
 `;
+
+const Ptheme = styled.p`
+  color: ${(props) => props.textColor};
+`;
+
 
 
 
